@@ -33,7 +33,7 @@ export default function Testimonials() {
 
               {/* Texto do Depoimento */}
               <p className="text-cream/80 italic font-light leading-relaxed mb-8 flex-grow">
-                "{item.text}"
+                &ldquo;{item.text}&rdquo;
               </p>
 
               {/* Identificação do Tutor */}

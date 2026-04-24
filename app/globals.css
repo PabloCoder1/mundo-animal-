@@ -2,6 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+@theme {
+  --color-sand: #B28F6F;
+  --color-obsidian: #161616;
+  --color-cream: #F5F0EB;
+  --color-amber: #C9A96E;
+  --color-muted: #2A2A2A;
+}
+
 @layer base {
   html {
     scroll-behavior: smooth;
