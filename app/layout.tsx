@@ -32,7 +32,7 @@ export default function RootLayout({
     image: "https://mundoanimal.com.br/logo.png", // TODO: Atualizar para URL real do logo
     "@id": "https://mundoanimal.com.br",
     url: "https://mundoanimal.com.br",
-    telephone: "+5513999999999", // TODO: Atualizar para o número real
+    telephone: "+5513991560814", // TODO: Atualizar para o número real
     address: {
       "@type": "PostalAddress",
       streetAddress: "Av. Conselheiro Nébias, 460 - Paquetá",

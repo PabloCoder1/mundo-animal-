@@ -56,7 +56,7 @@ export default function Location() {
                   <h4 className="text-cream font-semibold mb-1">WhatsApp / Telefone</h4>
                   {/* TODO: Substituir pelo número real */}
                   <p className="text-cream/70 font-light leading-relaxed">
-                    (13) 99999-9999
+                    (13) 99156-0814
                   </p>
                 </div>
               </div>
