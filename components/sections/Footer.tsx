@@ -1,59 +1,71 @@
-import { Camera, Users } from "lucide-react";
+import { getWhatsAppLink } from "@/lib/whatsapp";
+
+const navLinks = [
+  { name: "Serviços",    href: "#servicos" },
+  { name: "Produtos",    href: "#produtos" },
+  { name: "Depoimentos", href: "#depoimentos" },
+  { name: "Localização", href: "#localizacao" },
+  { name: "FAQ",         href: "#faq" },
+];
 
 export default function Footer() {
-  const currentYear = new Date().getFullYear();
+  const waLink = getWhatsAppLink("Olá! Vim pelo site e quero mais informações.");
 
   return (
-    <footer className="bg-obsidian border-t border-muted/30 pt-16 pb-8">
-      <div className="container mx-auto px-6">
-        
-        <div className="flex flex-col md:flex-row justify-between items-center md:items-start gap-10 mb-12 text-center md:text-left">
-          
-          {/* Wordmark e Descrição */}
-          <div className="max-w-sm flex flex-col items-center md:items-start">
-            <a href="#inicio" className="font-serif text-3xl font-bold text-sand hover:text-amber transition-colors inline-block mb-4">
+    <footer className="bg-teal text-white">
+      <div className="container mx-auto px-6 py-16">
+        <div className="grid md:grid-cols-3 gap-12 mb-12">
+
+          {/* Marca */}
+          <div>
+            <a href="#" className="font-serif text-2xl font-bold text-white hover:text-gold transition-colors">
               Mundo Animal
             </a>
-            <p className="text-cream/60 font-light text-sm leading-relaxed">
-              Cuidando do seu melhor amigo com o amor e a dedicação que ele merece. Petshop, Clínica, Estética e SPA em Santos.
+            <p className="text-xs font-semibold tracking-[0.2em] uppercase text-white/50 mt-1 mb-4">Petshop</p>
+            <p className="text-white/70 text-sm leading-relaxed max-w-xs">
+              Cuidando com amor de quem você mais ama, em Santos/SP.
             </p>
           </div>
 
-          {/* Links de Navegação */}
-          <div className="flex flex-col md:flex-row gap-6 md:gap-16">
-            <nav className="flex flex-col gap-3">
-              <a href="#servicos" className="text-cream/80 hover:text-amber text-sm font-medium transition-colors">Serviços</a>
-              <a href="#produtos" className="text-cream/80 hover:text-amber text-sm font-medium transition-colors">Produtos</a>
-              <a href="#depoimentos" className="text-cream/80 hover:text-amber text-sm font-medium transition-colors">Depoimentos</a>
-            </nav>
-            <nav className="flex flex-col gap-3">
-              <a href="#localizacao" className="text-cream/80 hover:text-amber text-sm font-medium transition-colors">Localização</a>
-              <a href="#faq" className="text-cream/80 hover:text-amber text-sm font-medium transition-colors">FAQ</a>
+          {/* Links */}
+          <div>
+            <p className="font-semibold text-sm uppercase tracking-widest text-white/50 mb-4">Menu</p>
+            <nav className="flex flex-col gap-2">
+              {navLinks.map((link) => (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  className="text-white/70 hover:text-white text-sm transition-colors"
+                >
+                  {link.name}
+                </a>
+              ))}
             </nav>
           </div>
 
-          {/* Redes Sociais */}
-          <div className="flex flex-col items-center md:items-end gap-4">
-            <span className="text-cream/80 text-sm font-medium">Acompanhe-nos</span>
-            <div className="flex items-center gap-4">
-              {/* TODO: Substituir href pelos links reais das redes sociais */}
-              <a href="#" className="w-10 h-10 rounded-full bg-muted/20 flex items-center justify-center text-cream hover:bg-sand hover:text-obsidian transition-all duration-300">
-                <Camera size={20} aria-label="Instagram" />
-              </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-muted/20 flex items-center justify-center text-cream hover:bg-sand hover:text-obsidian transition-all duration-300">
-                <Users size={20} aria-label="Facebook" />
+          {/* Contato */}
+          <div>
+            <p className="font-semibold text-sm uppercase tracking-widest text-white/50 mb-4">Contato</p>
+            <div className="flex flex-col gap-2 text-white/70 text-sm">
+              <p>Av. Conselheiro Nébias, 460</p>
+              <p>Paquetá — Santos/SP</p>
+              {/* TODO: Substituir pelo número real */}
+              <a
+                href={waLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gold hover:text-white transition-colors font-semibold mt-2"
+              >
+                (13) 99156-0814
               </a>
             </div>
           </div>
-          
         </div>
 
-        {/* Direitos Autorais */}
-        <div className="pt-8 border-t border-muted/20 flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left text-xs text-cream/40 font-light">
-          <p>© {currentYear} Mundo Animal. Todos os direitos reservados.</p>
-          <p>Feito com carinho para os pets.</p>
+        <div className="border-t border-white/20 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-white/40 text-xs">
+          <p>© {new Date().getFullYear()} Mundo Animal. Todos os direitos reservados.</p>
+          <p>Feito com 🐾 em Santos/SP</p>
         </div>
-        
       </div>
     </footer>
   );

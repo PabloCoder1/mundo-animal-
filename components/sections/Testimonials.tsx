@@ -1,53 +1,40 @@
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import { testimonials } from "@/data/testimonials";
-import { Star } from "lucide-react";
 
 export default function Testimonials() {
   return (
-    <SectionWrapper id="depoimentos" className="bg-obsidian">
+    <SectionWrapper id="depoimentos" className="bg-sand">
       <div className="container mx-auto px-6">
-        
-        {/* Cabeçalho da Seção */}
-        <div className="text-center mb-16">
-          <h2 className="font-serif text-4xl md:text-5xl font-bold text-cream mb-4">
-            Histórias de <span className="text-sand italic">Amor e Cuidado</span>
+
+        <div className="text-center max-w-xl mx-auto mb-14">
+          <span className="text-teal text-sm font-semibold uppercase tracking-widest">Depoimentos</span>
+          <h2 className="font-serif text-4xl md:text-5xl font-bold text-ink mt-3">
+            O que dizem os tutores
           </h2>
-          <p className="text-cream/60 text-lg font-light max-w-2xl mx-auto">
-            Não somos apenas nós que dizemos. Veja o que os tutores que confiam no Mundo Animal têm a dizer sobre nossa dedicação.
-          </p>
         </div>
 
-        {/* Grid de Depoimentos */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {testimonials.map((item) => (
-            <div 
-              key={item.id}
-              className="bg-muted/10 border border-muted/30 p-8 rounded-3xl flex flex-col relative"
-            >
+        <div className="grid md:grid-cols-3 gap-6">
+          {testimonials.map((t) => (
+            <div key={t.id} className="bg-white rounded-3xl p-8 border border-border flex flex-col gap-5 hover:shadow-md transition-shadow">
+
               {/* Estrelas */}
-              <div className="flex gap-1 mb-6">
+              <div className="flex gap-1">
                 {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-4 h-4 fill-amber text-amber" />
+                  <svg key={i} className="w-4 h-4 fill-gold text-gold" viewBox="0 0 24 24">
+                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                  </svg>
                 ))}
               </div>
 
-              {/* Texto do Depoimento */}
-              <p className="text-cream/80 italic font-light leading-relaxed mb-8 flex-grow">
-                &ldquo;{item.text}&rdquo;
-              </p>
+              <p className="text-muted text-sm leading-relaxed flex-1">"{t.text}"</p>
 
-              {/* Identificação do Tutor */}
-              <div className="flex items-center gap-4 pt-6 border-t border-muted/30">
-                <div className="w-12 h-12 rounded-full bg-sand/20 border border-sand/30 flex items-center justify-center text-sand font-bold text-lg">
-                  {item.initials}
+              <div className="flex items-center gap-3 pt-3 border-t border-border">
+                <div className="w-10 h-10 rounded-full bg-teal flex items-center justify-center text-white font-bold text-sm flex-shrink-0">
+                  {t.name?.split(" ").map((n: string) => n[0]).join("").slice(0, 2)}
                 </div>
                 <div>
-                  <h4 className="text-cream font-semibold leading-none mb-1">
-                    {item.name}
-                  </h4>
-                  <span className="text-sand text-xs font-medium uppercase tracking-wider">
-                    {item.petName}
-                  </span>
+                  <p className="text-sm font-semibold text-ink">{t.name}</p>
+                  <p className="text-xs text-muted">{t.petName}</p>
                 </div>
               </div>
             </div>

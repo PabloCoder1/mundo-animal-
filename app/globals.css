@@ -8,7 +8,7 @@
   }
 
   body {
-    @apply bg-obsidian text-cream antialiased overflow-x-hidden;
+    @apply bg-ivory text-ink antialiased overflow-x-hidden;
   }
 
   ::-webkit-scrollbar {
@@ -16,14 +16,14 @@
   }
 
   ::-webkit-scrollbar-track {
-    @apply bg-obsidian;
+    @apply bg-ivory;
   }
 
   ::-webkit-scrollbar-thumb {
-    @apply bg-muted rounded-full;
+    @apply bg-border rounded-full;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    @apply bg-sand;
+    @apply bg-teal;
   }
 }

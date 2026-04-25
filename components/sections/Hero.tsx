@@ -1,83 +1,55 @@
-import Image from "next/image";
-import SectionWrapper from "@/components/ui/SectionWrapper";
+// 📄 components/sections/Hero.tsx
 import { getWhatsAppLink } from "@/lib/whatsapp";
-import { Star } from "lucide-react";
+import Image from "next/image";
 
 export default function Hero() {
-  const waLink = getWhatsAppLink("Olá! Gostaria de saber mais e agendar um horário para o meu pet.");
+  const waLink = getWhatsAppLink("Olá! Vim pelo site e gostaria de agendar um horário para o meu pet.");
 
   return (
-    <SectionWrapper id="inicio" className="relative min-h-[calc(100vh-80px)] flex items-center">
-      {/* Background Decorativo Sutil */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-muted/30 via-obsidian to-obsidian -z-10"></div>
+    <section id="inicio" className="relative w-full h-screen min-h-[600px] max-h-[900px] overflow-hidden">
 
-      <div className="container mx-auto px-6 grid lg:grid-cols-2 gap-12 lg:gap-8 items-center py-12">
-        
-        {/* Coluna de Texto */}
-        <div className="flex flex-col items-start space-y-8 z-10">
-          
-          {/* Badge de Prova Social */}
-          <div className="flex items-center gap-3 bg-muted/40 border border-muted rounded-full px-4 py-2 w-fit backdrop-blur-sm">
-            <div className="flex -space-x-2">
-              <div className="w-7 h-7 rounded-full bg-sand border-2 border-obsidian"></div>
-              <div className="w-7 h-7 rounded-full bg-amber border-2 border-obsidian"></div>
-              <div className="w-7 h-7 rounded-full bg-cream border-2 border-obsidian"></div>
-            </div>
-            <div className="flex items-center gap-1.5 ml-1">
-              <div className="flex">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-3.5 h-3.5 fill-amber text-amber" />
-                ))}
-              </div>
-              <span className="text-xs font-medium text-cream/90 ml-1">
-                Amado por +1.000 tutores
-              </span>
-            </div>
-          </div>
+      {/* Imagem de fundo do hero */}
+      <Image
+        src="/images/hero-pet.png"
+        alt="Profissional cuidando de um golden retriever no Mundo Animal"
+        fill
+        className="object-cover object-center"
+        priority
+        sizes="100vw"
+      />
 
-          {/* Headline & Subheadline */}
-          <div className="space-y-6">
-            <h1 className="font-serif text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] text-cream">
-              O cuidado que seu melhor amigo <span className="text-sand italic">merece.</span>
-            </h1>
-            <p className="text-lg md:text-xl text-cream/70 max-w-lg font-light leading-relaxed">
-              Mais que um petshop. Um espaço acolhedor com clínica, estética e SPA, dedicado à saúde e felicidade de quem você mais ama.
-            </p>
-          </div>
+      {/* Overlay — CORRIGIDO: GRADIENTE MAIS SUTIL */}
+      {/* Reduzi a opacidade de 90% para 60% e 50% para 30% para a imagem aparecer mais */}
+      <div className="absolute inset-0 bg-gradient-to-r from-white/60 via-white/30 to-transparent" />
 
-          {/* CTAs (Call to Actions) */}
-          <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
-            <a
-              href={waLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex justify-center items-center px-8 py-4 bg-amber text-obsidian font-semibold rounded-lg hover:bg-sand transition-all duration-300 shadow-lg shadow-amber/10 hover:shadow-amber/20 hover:-translate-y-0.5"
-            >
-              Agendar Horário
-            </a>
-            <a
-              href="#servicos"
-              className="inline-flex justify-center items-center px-8 py-4 bg-transparent border border-muted text-cream font-medium rounded-lg hover:bg-muted/50 transition-colors duration-300"
-            >
-              Conhecer Serviços
-            </a>
-          </div>
-        </div>
+      {/* Conteúdo de texto — esquerda */}
+      <div className="relative z-10 h-full flex flex-col justify-center px-8 md:px-16 lg:px-24 max-w-xl">
+        <h1 className="font-serif text-4xl md:text-5xl lg:text-[3.25rem] font-bold text-ink leading-[1.15] mb-5">
+          Beleza, saúde e cuidado para o seu melhor amigo.
+        </h1>
 
-        {/* Coluna da Imagem */}
-        <div className="relative w-full h-[450px] lg:h-[600px] rounded-2xl overflow-hidden border border-muted/50 shadow-2xl group">
-          {/* Overlay escurecido para não quebrar o contraste do tema dark */}
-          <div className="absolute inset-0 bg-obsidian/20 z-10 transition-colors duration-500 group-hover:bg-transparent"></div>
-          
-          <Image
-            src="/images/hero-pet.jpg" // TODO: Adicionar imagem real na pasta public/images/
-            alt="Cachorro feliz e bem cuidado no Mundo Animal"
-            fill
-            className="object-cover transition-transform duration-700 group-hover:scale-105"
-            priority
-          />
+        <p className="text-base md:text-lg text-muted leading-relaxed mb-8 max-w-sm">
+          Banho, tosa, consultas veterinárias e SPA pet em um espaço feito com carinho para cães e gatos.
+        </p>
+
+        <a
+          href={waLink}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center self-start px-8 py-3.5 bg-teal text-white font-semibold text-base rounded-full hover:bg-tealDark transition-all duration-300 shadow-md hover:-translate-y-0.5"
+        >
+          Agendar horário
+        </a>
+      </div>
+
+      {/* Tag flutuante de horário */}
+      <div className="absolute bottom-8 left-8 md:left-16 lg:left-24 bg-white/90 backdrop-blur-sm border border-border rounded-2xl px-5 py-3 flex items-center gap-3 shadow-sm">
+        <span className="text-xl">🐾</span>
+        <div>
+          <p className="text-[10px] text-muted font-semibold uppercase tracking-wide">Santos, SP</p>
+          <p className="text-sm font-bold text-ink">Seg–Sáb 8h–19h · Dom 9h–14h</p>
         </div>
       </div>
-    </SectionWrapper>
+    </section>
   );
 }

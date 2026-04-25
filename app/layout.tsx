@@ -4,74 +4,63 @@ import "./globals.css";
 import Navbar from "@/components/ui/Navbar";
 import WhatsAppButton from "@/components/ui/WhatsAppButton";
 
-const inter = Inter({ 
-  subsets: ["latin"], 
-  variable: "--font-inter" 
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
 });
 
-const playfair = Playfair_Display({ 
-  subsets: ["latin"], 
-  variable: "--font-playfair" 
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  variable: "--font-playfair",
 });
 
 export const metadata: Metadata = {
-  title: "Mundo Animal | O melhor para o seu pet",
-  description: "Petshop completo com Banho e Tosa, Consulta Veterinária, Estética Especializada e SPA Pet. Cuidamos do seu melhor amigo com carinho e profissionalismo.",
+  title: "Mundo Animal | Petshop em Santos/SP",
+  description:
+    "Banho e tosa, consulta veterinária, estética especializada e SPA pet em Santos/SP. Cuidamos do seu melhor amigo com carinho e profissionalismo.",
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
-  // Schema Markup para SEO Local (LocalBusiness)
+}: Readonly<{ children: React.ReactNode }>) {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "PetStore",
     name: "Mundo Animal",
-    image: "https://mundoanimal.com.br/logo.png", // TODO: Atualizar para URL real do logo
+    image: "https://mundoanimal.com.br/logo.png", // TODO: URL real do logo
     "@id": "https://mundoanimal.com.br",
     url: "https://mundoanimal.com.br",
-    telephone: "+5513991560814", // TODO: Atualizar para o número real
+    telephone: "+5513999999999", // TODO: número real
     address: {
       "@type": "PostalAddress",
       streetAddress: "Av. Conselheiro Nébias, 460 - Paquetá",
       addressLocality: "Santos",
       addressRegion: "SP",
       postalCode: "11045-000",
-      addressCountry: "BR"
+      addressCountry: "BR",
     },
     openingHoursSpecification: [
       {
         "@type": "OpeningHoursSpecification",
-        dayOfWeek: [
-          "Monday",
-          "Tuesday",
-          "Wednesday",
-          "Thursday",
-          "Friday",
-          "Saturday"
-        ],
+        dayOfWeek: ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
         opens: "08:00",
-        closes: "19:00"
+        closes: "19:00",
       },
       {
         "@type": "OpeningHoursSpecification",
         dayOfWeek: "Sunday",
         opens: "09:00",
-        closes: "14:00"
-      }
-    ]
+        closes: "14:00",
+      },
+    ],
   };
 
   return (
     <html lang="pt-BR" className={`${inter.variable} ${playfair.variable}`}>
-      <body className="font-sans bg-obsidian text-cream antialiased">
+      <body className="font-sans bg-ivory text-ink antialiased">
         <Navbar />
         {children}
         <WhatsAppButton />
-        
-        {/* Injeção do JSON-LD no cabeçalho do documento */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

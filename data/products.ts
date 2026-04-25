@@ -14,14 +14,14 @@ export const products: Product[] = [
     description: "Nutrição completa e balanceada. Focada na longevidade e energia do seu melhor amigo.",
     price: "R$ 219,90",
     badge: "Mais Vendido",
-    image: "/images/product-1.jpg",
+    image: "/images/product-1.png",
   },
   {
     id: "shampoo-hipoalergenico",
     name: "Shampoo Hipoalergênico",
     description: "Fórmula suave desenvolvida por dermatologistas veterinários para peles sensíveis.",
     price: "R$ 54,90",
-    image: "/images/product-2.jpg",
+    image: "/images/product-2.png",
   },
   {
     id: "caminha-ortopedica",
@@ -29,7 +29,7 @@ export const products: Product[] = [
     description: "Espuma de memória que alivia a pressão nas articulações, garantindo um sono profundo.",
     price: "R$ 189,90",
     badge: "Lançamento",
-    image: "/images/product-3.jpg",
+    image: "/images/product-3.png",
   },
   {
     id: "kit-higiene-bucal",
@@ -37,6 +37,6 @@ export const products: Product[] = [
     description: "Escova de dedeira e pasta sabor carne para prevenção de tártaro e mau hálito.",
     price: "R$ 39,90",
     badge: "15% OFF",
-    image: "/images/product-4.jpg",
+    image: "/images/product-4.png",
   },
 ];
